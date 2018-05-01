@@ -1,3 +1,21 @@
+---
+# prerequisites
+- name: Install libraries
+  become: True
+  apt:
+      name: "{{ item }}"
+      state: latest
+      update_cache: True
+  with_items:
+    - build-essential
+    - gfortran
+    - openmpi-bin
+    - libopenmpi-dev
+    - libfftw3-dev
+    - libfftw3-mpi-dev
+    - liblapack-dev
+    - libblas-dev
+
 # Will only download once
 - name: Get Quantum ESPRESSO source
   get_url:
@@ -5,11 +23,15 @@
     dest: "{{ quantum_espresso_code_folder }}/{{  quantum_espresso_src_archive }}"
   register: quantum_espresso_download
 
+# For some reason this is not idempotent on travis
+# See also https://github.com/ansible/ansible/issues/22254
+# (but not sure it is related)
 - name: Extract QE source
   unarchive:
     src: "{{ quantum_espresso_download.dest }}"
     dest: "{{ quantum_espresso_code_folder }}"
     remote_src: yes
+  when: quantum_espresso_download.changed
 
 # --fpe-summary=none removes all floating-point exceptions
 # see https://github.com/marvel-nccr/quantum-mobile/issues/52
@@ -44,7 +66,7 @@
     path: "{{ ansible_env.HOME }}/.profile"
     line: "export PATH=${PATH}:{{ quantum_espresso_topdir }}/bin"
 
-- import_role:
+- include_role:
     name: release_notes
   vars:
     section: "Quantum ESPRESSO"
@@ -52,7 +74,7 @@
     value: "{{ quantum_espresso_version }}"
   when: release_notes is defined and release_notes
 
-- import_role:
+- include_role:
     name: release_notes
   vars:
     section: "Quantum ESPRESSO"
