@@ -1,0 +1,7 @@
+---
+- hosts: localhost
+  vars:
+    # this would take too much time...
+    run_tests: False
+  roles:
+  - quantum-espresso
