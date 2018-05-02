@@ -1,6 +1,6 @@
 # Ansible Role: Quantum ESPRESSO
 
-An Ansible role that installs [Quantum ESPRESSO](quantum-espresso.org) on Ubuntu.
+An Ansible role that installs [Quantum ESPRESSO](http://www.quantum-espresso.org) on Ubuntu.
 
 ## Role Variables
 

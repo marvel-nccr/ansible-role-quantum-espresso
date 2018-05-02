@@ -30,3 +30,7 @@ script:
     && (echo 'Idempotency test: pass' && exit 0)
     || (echo 'Idempotency test: fail' && exit 1)
   - 'sudo docker rm -f "${container_id}"'
+
+notifications:
+  webhooks: https://galaxy.ansible.com/api/v1/notifications/
+
