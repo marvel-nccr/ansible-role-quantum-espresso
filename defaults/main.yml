@@ -5,7 +5,7 @@ quantum_espresso_url: "https://gitlab.com/QEF/q-e/repository/qe-{{ quantum_espre
 #quantum_espresso_url: "https://github.com/QEF/q-e/archive/{{ quantum_espresso_src_archive }}"
 quantum_espresso_src_archive: "qe-{{ quantum_espresso_version }}.tar.gz"
 
-quantum_espresso_code_folder: "{{ ansible_env.HOME }}"
+quantum_espresso_code_folder: "${HOME}"
 quantum_espresso_src: "q-e-qe-{{ quantum_espresso_version }}-{{ quantum_espresso_git_tag }}"
 quantum_espresso_topdir: "{{ quantum_espresso_code_folder }}/{{quantum_espresso_src}}"
 
@@ -15,3 +15,5 @@ quantum_espresso_executables:
   - pp
   - ph
   - neb
+
+root_user: root
