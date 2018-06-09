@@ -52,7 +52,7 @@
 
 
 - name: Make QE executables
-  shell: "make {{ item }}"
+  shell: "make {{ item.name }}"
   args:
     creates: "{{ quantum_espresso_topdir }}/bin/{{ item }}.x"
     chdir: "{{ quantum_espresso_topdir }}"
