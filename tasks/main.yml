@@ -4,10 +4,7 @@
   become: True
   become_user: "{{ root_user }}"
   apt:
-      name: "{{ item }}"
-      state: latest
-      update_cache: True
-  with_items:
+     name:
     - build-essential
     - gfortran
     - openmpi-bin
@@ -16,6 +13,8 @@
     - libfftw3-mpi-dev
     - liblapack-dev
     - libblas-dev
+     state: latest
+     update_cache: True
 
 # Will only download once
 - name: Get Quantum ESPRESSO source
