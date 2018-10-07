@@ -5,14 +5,14 @@
   become_user: "{{ root_user }}"
   apt:
      name:
-    - build-essential
-    - gfortran
-    - openmpi-bin
-    - libopenmpi-dev
-    - libfftw3-dev
-    - libfftw3-mpi-dev
-    - liblapack-dev
-    - libblas-dev
+     - build-essential
+     - gfortran
+     - openmpi-bin
+     - libopenmpi-dev
+     - libfftw3-dev
+     - libfftw3-mpi-dev
+     - liblapack-dev
+     - libblas-dev
      state: latest
      update_cache: True
 
