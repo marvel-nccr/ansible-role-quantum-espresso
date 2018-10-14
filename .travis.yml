@@ -29,8 +29,8 @@ install:
 before_script:
   # Use actual Ansible Galaxy role name for the project directory.
   - cd ../
-  - mv ansible-role-$ROLE_NAME marvel-nccr.$ROLE_NAME
-  - cd marvel-nccr.$ROLE_NAME
+  - mv ansible-role-$ANSIBLE_ROLE marvel-nccr.$ANSIBLE_ROLE
+  - cd marvel-nccr.$ANSIBLE_ROLE
 
 script:
   - molecule test
