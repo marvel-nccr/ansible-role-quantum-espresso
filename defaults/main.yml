@@ -1,27 +1,28 @@
+---
 quantum_espresso_version: "6.3"
 quantum_espresso_git_tag: "90a2aa88298f5005b8ab8f5fcc354c5870481d68"
 quantum_espresso_src_archive: "q-e-{{ quantum_espresso_git_tag }}.tar.gz"
-quantum_espresso_url: "https://gitlab.com/QEF/q-e/-/archive/{{ quantum_espresso_git_tag }}/{{ quantum_espresso_src_archive }}"
+quantum_espresso_url: "https://gitlab.com/QEF/q-e/-/archive/{{ quantum_espresso_git_tag }}/{{ quantum_espresso_src_archive }}" # yamllint disable-line
 
 quantum_espresso_code_folder: "${HOME}"
 quantum_espresso_src: "q-e-{{ quantum_espresso_git_tag }}"
-quantum_espresso_topdir: "{{ quantum_espresso_code_folder }}/{{quantum_espresso_src}}"
+quantum_espresso_topdir: "{{ quantum_espresso_code_folder }}/{{quantum_espresso_src}}" # yamllint disable-line
 
 quantum_espresso_executables:
-- name: pw
-  folder: "{{ quantum_espresso_topdir }}/bin"
-  plugin: quantumespresso.pw
-- name: cp
-  folder: "{{ quantum_espresso_topdir }}/bin"
-  plugin: quantumespresso.cp
-- name: pp
-  folder: "{{ quantum_espresso_topdir }}/bin"
-  plugin: quantumespresso.pp
-- name: ph
-  folder: "{{ quantum_espresso_topdir }}/bin"
-  plugin: quantumespresso.ph
-- name: neb
-  folder: "{{ quantum_espresso_topdir }}/bin"
-  plugin: quantumespresso.neb
+  - name: pw
+    folder: "{{ quantum_espresso_topdir }}/bin"
+    plugin: quantumespresso.pw
+  - name: cp
+    folder: "{{ quantum_espresso_topdir }}/bin"
+    plugin: quantumespresso.cp
+  - name: pp
+    folder: "{{ quantum_espresso_topdir }}/bin"
+    plugin: quantumespresso.pp
+  - name: ph
+    folder: "{{ quantum_espresso_topdir }}/bin"
+    plugin: quantumespresso.ph
+  - name: neb
+    folder: "{{ quantum_espresso_topdir }}/bin"
+    plugin: quantumespresso.neb
 
 root_user: root

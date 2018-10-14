@@ -1,46 +1,50 @@
 ---
 # prerequisites
 - name: Install libraries
-  become: True
+  become: true
   become_user: "{{ root_user }}"
   apt:
-     name:
-     - build-essential
-     - gfortran
-     - openmpi-bin
-     - libopenmpi-dev
-     - libfftw3-dev
-     - libfftw3-mpi-dev
-     - liblapack-dev
-     - libblas-dev
-     state: latest
-     update_cache: True
+    name:
+      - build-essential
+      - gfortran
+      - openmpi-bin
+      - libopenmpi-dev
+      - libfftw3-dev
+      - libfftw3-mpi-dev
+      - liblapack-dev
+      - libblas-dev
+    state: present
+    update_cache: true
 
 # Will only download once
 - name: Get Quantum ESPRESSO source
   get_url:
     url: "{{ quantum_espresso_url }}"
-    dest: "{{ quantum_espresso_code_folder }}/{{  quantum_espresso_src_archive }}"
+    dest: "{{ quantum_espresso_code_folder }}/{{quantum_espresso_src_archive}}"
   register: quantum_espresso_download
 
 # For some reason this is not idempotent on travis
 # See also https://github.com/ansible/ansible/issues/22254
 # (but not sure it is related)
 - name: Extract QE source
+  tags:
+    - skip_ansible_lint
   unarchive:
     src: "{{ quantum_espresso_download.dest }}"
     dest: "{{ quantum_espresso_code_folder }}"
-    remote_src: yes
+    remote_src: true
   when: quantum_espresso_download.changed
 
 # --fpe-summary=none removes all floating-point exceptions
 # see https://github.com/marvel-nccr/quantum-mobile/issues/52
 - name: Configure QE
-  shell: "FFLAGS='-O3 -g -ffpe-summary=none' ./configure --enable-parallel"
+  environment:
+    FFLAGS: '-O3 -g -ffpe-summary=none'
+  command: "./configure --enable-parallel"
   args:
     creates: "{{ quantum_espresso_topdir }}/make.inc"
     chdir: "{{ quantum_espresso_topdir }}"
-     
+
 # this is needed because aiida isn't yet able to parse
 # the new XML format
 - name: "Force to use old XML format"
@@ -50,7 +54,7 @@
     line: "DFLAGS        +=  -D__OLDXML"
 
 - name: Make QE executables
-  shell: "make {{ item.name }}"
+  command: "make {{ item.name }}"
   args:
     creates: "{{ item.folder }}/{{ item.name }}.x"
     chdir: "{{ quantum_espresso_topdir }}"
@@ -79,10 +83,12 @@
     section: "Quantum ESPRESSO"
     option: "usage"
     value: >-
-        Quantum ESPRESSO is installed in {{ quantum_espresso_topdir }}. 
+        Quantum ESPRESSO is installed in {{ quantum_espresso_topdir }}.
         'pw.x', 'cp.x', ... have been added to the PATH
   when: release_notes is defined and release_notes
 
 - name: Clean object files
+  tags:
+    - skip_ansible_lint
   shell: "rm {{ quantum_espresso_topdir }}/*/src/*.o"
   when: clean is defined and clean

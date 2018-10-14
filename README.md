@@ -24,9 +24,15 @@ See `defaults/main.yml`
 
 ## Example Playbook
 
-    - hosts: machines
-      roles:
-      - role: nccr-marvel.quantum-espresso
+```
+- hosts: machines
+  roles:
+  - role: nccr-marvel.quantum-espresso
+```
+
+## Tests
+
+This role uses [Molecule](https://molecule.readthedocs.io/en/latest/#) and Docker for tests.
 
 ## License
 
