@@ -27,7 +27,7 @@ See `defaults/main.yml`
 ```
 - hosts: machines
   roles:
-  - role: nccr-marvel.quantum-espresso
+  - role: nccr-marvel.quantum_espresso
 ```
 
 ## Tests
