@@ -8,4 +8,4 @@
       when: ansible_os_family == 'Debian'
 
   roles:
-    - role: marvel-nccr.quantum-espresso
+    - role: marvel-nccr.quantum_espresso
