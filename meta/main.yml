@@ -2,6 +2,7 @@
 dependencies: []
 
 galaxy_info:
+  role_name: "quantum_espresso"
   author: "MARVEL NCCR"
   description: "Installs Quantum ESPRESSO"
   license: "license (MIT)"
