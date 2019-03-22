@@ -24,7 +24,7 @@ See `defaults/main.yml`
 
 ## Example Playbook
 
-```
+```yaml
 - hosts: machines
   roles:
   - role: nccr-marvel.quantum_espresso

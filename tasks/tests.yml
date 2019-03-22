@@ -7,7 +7,7 @@
 #     state: directory
 
 - name: run QE test suite
-  shell: "make test-suite"
+  command: "make test-suite"
   args:
     creates: "{{ quantum_espresso_topdir }}/test-suite/Makefile"
     chdir: "{{ quantum_espresso_topdir }}"

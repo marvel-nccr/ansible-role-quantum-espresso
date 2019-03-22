@@ -20,7 +20,7 @@
 - name: Get Quantum ESPRESSO source
   get_url:
     url: "{{ quantum_espresso_url }}"
-    dest: "{{ quantum_espresso_code_folder }}/{{quantum_espresso_src_archive}}"
+    dest: "{{ quantum_espresso_code_folder }}/{{ quantum_espresso_src_archive }}"
   register: quantum_espresso_download
 
 # For some reason this is not idempotent on travis
