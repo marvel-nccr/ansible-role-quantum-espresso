@@ -45,14 +45,6 @@
     creates: "{{ quantum_espresso_topdir }}/make.inc"
     chdir: "{{ quantum_espresso_topdir }}"
 
-# this is needed because aiida isn't yet able to parse
-# the new XML format
-- name: "Force to use old XML format"
-  lineinfile:
-    path: "{{ quantum_espresso_topdir }}/make.inc"
-    insertafter: "DFLAGS         =  -D__FFTW3 -D__MPI"
-    line: "DFLAGS        +=  -D__OLDXML"
-
 - name: Make QE executables
   command: "make {{ item.name }}"
   args:
