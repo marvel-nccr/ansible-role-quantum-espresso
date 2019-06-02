@@ -61,6 +61,11 @@
     path: "${HOME}/.profile"
     line: "export PATH=${PATH}:{{ quantum_espresso_topdir }}/bin"
 
+- name: "Fix OpenMPI issue https://github.com/open-mpi/ompi/issues/1393"
+  lineinfile:
+    path: "${HOME}/.profile"
+    line: "export OMPI_MCA_btl=^openib"
+
 - include_role:
     name: release_notes
   vars:
