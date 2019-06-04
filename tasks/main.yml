@@ -2,7 +2,6 @@
 # prerequisites
 - name: Install libraries
   become: true
-  become_user: "{{ root_user }}"
   apt:
     name:
       - build-essential
@@ -40,7 +39,7 @@
 - name: Configure QE
   environment:
     FFLAGS: '-O3 -g -ffpe-summary=none'
-  command: "./configure --enable-parallel"
+  command: "./configure --enable-parallel --prefix {{ quantum_espresso_prefix }}"
   args:
     creates: "{{ quantum_espresso_topdir }}/make.inc"
     chdir: "{{ quantum_espresso_topdir }}"
@@ -56,15 +55,21 @@
 - import_tasks: tests.yml
   when: quantum_espresso_make.changed and run_tests is defined and run_tests
 
-- name: "Put a line in ${HOME}/.profile to add QE to the path"
-  lineinfile:
-    path: "${HOME}/.profile"
-    line: "export PATH=${PATH}:{{ quantum_espresso_topdir }}/bin"
+- name: Install QE executables
+  command: "make install"
+  become: true
+  args:
+    creates: "{{ quantum_espresso_prefix }}/bin/pw.x"
+    chdir: "{{ quantum_espresso_topdir }}"
+  with_items: "{{ quantum_espresso_executables }}"
+  register: quantum_espresso_make
 
 - name: "Fix OpenMPI issue https://github.com/open-mpi/ompi/issues/1393"
+  become: true
   lineinfile:
-    path: "${HOME}/.profile"
+    path: "{{ quantum_espresso_env_file }}"
     line: "export OMPI_MCA_btl=^openib"
+    create: true
 
 - include_role:
     name: release_notes
@@ -84,8 +89,8 @@
         'pw.x', 'cp.x', ... have been added to the PATH
   when: release_notes is defined and release_notes
 
-- name: Clean object files
-  tags:
-    - skip_ansible_lint
-  shell: "rm {{ quantum_espresso_topdir }}/*/src/*.o"
+- name: Remove code folder
+  file:
+    state: absent
+    path: "{{ quantum_espresso_topdir }}"
   when: clean is defined and clean

@@ -5,7 +5,9 @@ quantum_espresso_git_tag: "qe-{{ quantum_espresso_version }}"
 quantum_espresso_src_archive: "q-e-{{ quantum_espresso_git_tag }}.tar.gz"
 quantum_espresso_url: "https://gitlab.com/QEF/q-e/-/archive/{{ quantum_espresso_git_tag }}/{{ quantum_espresso_src_archive }}" # yamllint disable-line
 
-quantum_espresso_code_folder: "${HOME}"
+quantum_espresso_env_file: /etc/profile.d/quantum_espresso.sh
+quantum_espresso_prefix: "/usr/local"
+quantum_espresso_code_folder: "/tmp"
 quantum_espresso_src: "q-e-{{ quantum_espresso_git_tag }}"
 quantum_espresso_topdir: "{{ quantum_espresso_code_folder }}/{{quantum_espresso_src}}" # yamllint disable-line
 
@@ -28,5 +30,3 @@ quantum_espresso_executables:
   - name: hp
     folder: "{{ quantum_espresso_topdir }}/bin"
     plugin: quantumespresso.hp
-
-root_user: root
