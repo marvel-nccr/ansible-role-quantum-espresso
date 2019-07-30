@@ -44,6 +44,20 @@
     creates: "{{ quantum_espresso_topdir }}/make.inc"
     chdir: "{{ quantum_espresso_topdir }}"
 
+# this is needed because aiida-qe 2.x isn't yet able to parse
+# the new XML format
+- name: "Force to use old XML format"
+  lineinfile:
+    path: "{{ quantum_espresso_topdir }}/make.inc"
+    insertafter: "DFLAGS         =  -D__FFTW3 -D__MPI"
+    line: "DFLAGS        +=  -D__OLDXML"
+
+# this is fixed in QE 6.4
+- name: "fix broken 'make install' command"
+  lineinfile:
+    path: "{{ quantum_espresso_topdir }}/Makefile"
+    line: ".PHONY: install"
+
 - name: Make QE executables
   command: "make {{ item.name }}"
   args:
@@ -61,8 +75,7 @@
   args:
     creates: "{{ quantum_espresso_prefix }}/bin/pw.x"
     chdir: "{{ quantum_espresso_topdir }}"
-  with_items: "{{ quantum_espresso_executables }}"
-  register: quantum_espresso_make
+  register: quantum_espresso_install
 
 - name: "Fix OpenMPI issue https://github.com/open-mpi/ompi/issues/1393"
   become: true
