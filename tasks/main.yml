@@ -59,7 +59,7 @@
   command: "make install"
   become: true
   args:
-    creates: "{{ quantum_espresso_prefix }}/bin/pw.x"
+    creates: "{{ quantum_espresso_prefix }}/bin/{{ item.name }}.x"
     chdir: "{{ quantum_espresso_topdir }}"
   with_items: "{{ quantum_espresso_executables }}"
   register: quantum_espresso_make

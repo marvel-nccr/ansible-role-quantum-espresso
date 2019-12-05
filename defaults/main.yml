@@ -30,3 +30,8 @@ quantum_espresso_executables:
   - name: hp
     folder: "{{ quantum_espresso_prefix }}/bin"
     plugin: quantumespresso.hp
+  - name: w90
+    folder: "{{ quantum_espresso_prefix }}/bin"
+    plugin: wannier90
+  - name: epw
+    folder: "{{ quantum_espresso_prefix }}/bin"
