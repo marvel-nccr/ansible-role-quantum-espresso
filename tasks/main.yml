@@ -86,7 +86,7 @@
     section: "Quantum ESPRESSO"
     option: "usage"
     value: >-
-        Quantum ESPRESSO is installed in {{ quantum_espresso_topdir }}.
+        Quantum ESPRESSO is installed in {{ quantum_espresso_prefix }}.
         'pw.x', 'cp.x', ... have been added to the PATH
   when: release_notes is defined and release_notes
 
