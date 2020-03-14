@@ -51,6 +51,7 @@
     creates: "{{ item.folder }}/{{ item.executable }}"
     chdir: "{{ quantum_espresso_topdir }}"
   with_items: "{{ quantum_espresso_executables }}"
+  when: item.make is defined and item.make
   register: quantum_espresso_make
 
 - import_tasks: tests.yml
