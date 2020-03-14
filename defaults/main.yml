@@ -17,14 +17,46 @@ quantum_espresso_executables:
     folder: "{{ quantum_espresso_prefix }}/bin"
     executable: "pw.x"
     plugin: quantumespresso.pw
+    make: true
+  - name: cp
+    folder: "{{ quantum_espresso_prefix }}/bin"
+    executable: "cp.x"
+    plugin: quantumespresso.cp
+    make: true
+  - name: pp
+    folder: "{{ quantum_espresso_prefix }}/bin"
+    executable: "pp.x"
+    plugin: quantumespresso.pp
+    make: true
+  - name: ph
+    folder: "{{ quantum_espresso_prefix }}/bin"
+    executable: "ph.x"
+    plugin: quantumespresso.ph
+    make: true
+  - name: neb
+    folder: "{{ quantum_espresso_prefix }}/bin"
+    executable: "neb.x"
+    plugin: quantumespresso.neb
+    make: true
+  - name: hp
+    folder: "{{ quantum_espresso_prefix }}/bin"
+    executable: "hp.x"
+    plugin: quantumespresso.hp
+    make: true
+  - name: w90
+    folder: "{{ quantum_espresso_prefix }}/bin"
+    executable: "wannier90.x"
+    plugin: wannier90
+    make: true
+  - name: epw
+    folder: "{{ quantum_espresso_prefix }}/bin"
+    executable: "epw.x"
+    make: true
+  # utilities
   - name: projwfc
     folder: "{{ quantum_espresso_prefix }}/bin"
     executable: "projwfc.x"
     plugin: quantumespresso.projwfc
-  - name: pwimmigrant
-    folder: "{{ quantum_espresso_prefix }}/bin"
-    executable: "pwimmigrant.x"
-    plugin: quantumespresso.pwimmigrant
   - name: pw2wannier90
     folder: "{{ quantum_espresso_prefix }}/bin"
     executable: "pw2wannier90.x"
@@ -41,37 +73,6 @@ quantum_espresso_executables:
     folder: "{{ quantum_espresso_prefix }}/bin"
     executable: "matdyn.x"
     plugin: quantumespresso.matdyn
-  - name: namelists
-    folder: "{{ quantum_espresso_prefix }}/bin"
-    executable: "namelists.x"
-    plugin: quantumespresso.namelists
-  - name: cp
-    folder: "{{ quantum_espresso_prefix }}/bin"
-    executable: "cp.x"
-    plugin: quantumespresso.cp
-  - name: pp
-    folder: "{{ quantum_espresso_prefix }}/bin"
-    executable: "pp.x"
-    plugin: quantumespresso.pp
-  - name: ph
-    folder: "{{ quantum_espresso_prefix }}/bin"
-    executable: "ph.x"
-    plugin: quantumespresso.ph
-  - name: neb
-    folder: "{{ quantum_espresso_prefix }}/bin"
-    executable: "neb.x"
-    plugin: quantumespresso.neb
-  - name: hp
-    folder: "{{ quantum_espresso_prefix }}/bin"
-    executable: "hp.x"
-    plugin: quantumespresso.hp
-  - name: w90
-    folder: "{{ quantum_espresso_prefix }}/bin"
-    executable: "wannier90.x"
-    plugin: wannier90
-  - name: epw
-    folder: "{{ quantum_espresso_prefix }}/bin"
-    executable: "epw.x"
 
 quantum_espresso_pps:
   - name: sssp-pbe-efficiency-1.1
