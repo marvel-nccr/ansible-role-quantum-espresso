@@ -17,6 +17,34 @@ quantum_espresso_executables:
     folder: "{{ quantum_espresso_prefix }}/bin"
     executable: "pw.x"
     plugin: quantumespresso.pw
+  - name: projwfc
+    folder: "{{ quantum_espresso_prefix }}/bin"
+    executable: "projwfc.x"
+    plugin: quantumespresso.projwfc
+  - name: pwimmigrant
+    folder: "{{ quantum_espresso_prefix }}/bin"
+    executable: "pwimmigrant.x"
+    plugin: quantumespresso.pwimmigrant
+  - name: pw2wannier90
+    folder: "{{ quantum_espresso_prefix }}/bin"
+    executable: "pw2wannier90.x"
+    plugin: quantumespresso.pw2wannier90
+  - name: q2r
+    folder: "{{ quantum_espresso_prefix }}/bin"
+    executable: "q2r.x"
+    plugin: quantumespresso.q2r
+  - name: dos
+    folder: "{{ quantum_espresso_prefix }}/bin"
+    executable: "dos.x"
+    plugin: quantumespresso.dos
+  - name: matdyn
+    folder: "{{ quantum_espresso_prefix }}/bin"
+    executable: "matdyn.x"
+    plugin: quantumespresso.matdyn
+  - name: namelists
+    folder: "{{ quantum_espresso_prefix }}/bin"
+    executable: "namelists.x"
+    plugin: quantumespresso.namelists
   - name: cp
     folder: "{{ quantum_espresso_prefix }}/bin"
     executable: "cp.x"
