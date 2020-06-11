@@ -78,7 +78,7 @@ quantum_espresso_pps:
   - name: sssp-pbe-efficiency-1.1
     file: SSSP_efficiency_pseudos.tar.gz
     folder: sssp-pbe-efficiency-1.1
-    url: https://archive.materialscloud.org/file/2018.0001/v3
+    url: https://legacy-archive.materialscloud.org/file/2018.0001/v3
     home_page: https://materialscloud.org/sssp/
     description: >-
      Standard Solid State Pseudopotentials (efficiency)
@@ -86,7 +86,7 @@ quantum_espresso_pps:
   - name: sssp-pbe-precision-1.1
     file: SSSP_precision_pseudos.tar.gz
     folder: sssp-pbe-precision-1.1
-    url: https://archive.materialscloud.org/file/2018.0001/v3
+    url: https://legacy-archive.materialscloud.org/file/2018.0001/v3
     home_page: https://materialscloud.org/sssp/
     description: >-
      Standard Solid State Pseudopotentials (precision)
