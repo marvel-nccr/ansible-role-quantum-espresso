@@ -1,5 +1,5 @@
 ---
-quantum_espresso_version: "6.5"
+quantum_espresso_version: "6.6"
 # quantum_espresso_git_tag: "90a2aa88298f5005b8ab8f5fcc354c5870481d68"
 quantum_espresso_git_tag: "qe-{{ quantum_espresso_version }}"
 quantum_espresso_src_archive: "q-e-{{ quantum_espresso_git_tag }}.tar.gz"
