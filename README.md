@@ -4,7 +4,7 @@
 
 # Ansible Role: marvel-nccr.quantum_espresso
 
-An Ansible role that installs [Quantum ESPRESSO](http://www.quantum-espresso.org) on Ubuntu.
+An Ansible role that installs [Quantum ESPRESSO](http://www.quantum-espresso.org) on Ubuntu (tested against 16.04, 18.04 amd 20.04).
 
 ## Installation
 

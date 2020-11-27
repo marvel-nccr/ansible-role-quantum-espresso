@@ -98,9 +98,9 @@
 
 - name: Add pseudopotentials
   include_tasks: pps.yml
-  vars:
-    pp: "{{ item }}"
-  with_items: "{{ quantum_espresso_pps }}"
+  loop: "{{ quantum_espresso_pps }}"
+  loop_control:
+    loop_var: pp
 
 - name: Remove code folder
   file:

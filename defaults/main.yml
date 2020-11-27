@@ -77,23 +77,20 @@ quantum_espresso_pps:
 - name: sssp-pbe-efficiency-1.1
   file: SSSP_efficiency_pseudos.tar.gz
   folder: sssp-pbe-efficiency-1.1
-  url: https://legacy-archive.materialscloud.org/file/2018.0001/v3
-  home_page: https://materialscloud.org/sssp/
+  url: https://archive.materialscloud.org/record/file?file_id=8a94cb23-2c11-422f-9290-22392dbc355b&record_id=22&filename=SSSP_efficiency_pseudos.tar.gz
   description: >-
     Standard Solid State Pseudopotentials (efficiency)
     for the PBE functional
 - name: sssp-pbe-precision-1.1
   file: SSSP_precision_pseudos.tar.gz
   folder: sssp-pbe-precision-1.1
-  url: https://legacy-archive.materialscloud.org/file/2018.0001/v3
-  home_page: https://materialscloud.org/sssp/
+  url: https://archive.materialscloud.org/record/file?record_id=22&file_id=4f68604c-a95c-468e-9b5e-6ff7bc2bc543&filename=SSSP_precision_pseudos.tar.gz
   description: >-
     Standard Solid State Pseudopotentials (precision)
     for the PBE functional
 - name: sg15-oncv-1.1
   file: sg15_oncv_upf_2015-10-07.tar.gz
-  url: http://www.quantum-simulation.org/potentials/sg15_oncv
   folder: sg15-oncv-1.1
-  home_page: http://www.quantum-simulation.org/potentials/sg15_oncv/
+  url: http://www.quantum-simulation.org/potentials/sg15_oncv/sg15_oncv_upf_2015-10-07.tar.gz
   description: >-
     SG15 Optimized Norm-Conserving Vanderbilt (ONCV) pseudopotentials
