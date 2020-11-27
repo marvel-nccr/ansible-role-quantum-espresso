@@ -1,18 +1,17 @@
----
 # prerequisites
 - name: Install libraries
   become: true
   apt:
     name:
-      - build-essential
-      - wget  # needed for wget from https
-      - gfortran
-      - openmpi-bin
-      - libopenmpi-dev
-      - libfftw3-dev
-      - libfftw3-mpi-dev
-      - liblapack-dev
-      - libblas-dev
+    - build-essential
+    - wget    # needed for wget from https
+    - gfortran
+    - openmpi-bin
+    - libopenmpi-dev
+    - libfftw3-dev
+    - libfftw3-mpi-dev
+    - liblapack-dev
+    - libblas-dev
     state: present
     update_cache: true
 
@@ -28,7 +27,7 @@
 # (but not sure it is related)
 - name: Extract QE source
   tags:
-    - skip_ansible_lint
+  - skip_ansible_lint
   unarchive:
     src: "{{ quantum_espresso_download.dest }}"
     dest: "{{ quantum_espresso_code_folder }}"
@@ -87,8 +86,8 @@
     section: "Quantum ESPRESSO"
     option: "usage"
     value: >-
-        Quantum ESPRESSO is installed in {{ quantum_espresso_prefix }}.
-        'pw.x', 'cp.x', ... have been added to the PATH
+      Quantum ESPRESSO is installed in {{ quantum_espresso_prefix }}.
+      'pw.x', 'cp.x', ... have been added to the PATH
   when: release_notes is defined and release_notes
 
 - name: "Create QE data folder"

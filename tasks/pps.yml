@@ -1,4 +1,3 @@
----
 # download and extract pseudopotentials
 - name: download "{{ pp.file }}"
   get_url:
