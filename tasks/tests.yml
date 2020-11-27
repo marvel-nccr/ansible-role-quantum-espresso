@@ -1,4 +1,3 @@
----
 # QE 6.2.1: test-suite fails to create temporary directory
 # Should be fixed in next release. See https://gitlab.com/QEF/q-e/issues/15
 # - name: make temporary directory
