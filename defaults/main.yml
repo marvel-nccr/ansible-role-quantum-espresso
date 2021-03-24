@@ -16,62 +16,75 @@ quantum_espresso_executables:
   folder: "{{ quantum_espresso_prefix }}/bin"
   executable: "pw.x"
   plugin: quantumespresso.pw
+  version: "{{ quantum_espresso_version }}"
   make: true
 - name: cp
   folder: "{{ quantum_espresso_prefix }}/bin"
   executable: "cp.x"
   plugin: quantumespresso.cp
+  version: "{{ quantum_espresso_version }}"
   make: true
 - name: pp
   folder: "{{ quantum_espresso_prefix }}/bin"
   executable: "pp.x"
   plugin: quantumespresso.pp
+  version: "{{ quantum_espresso_version }}"
   make: true
 - name: ph
   folder: "{{ quantum_espresso_prefix }}/bin"
   executable: "ph.x"
   plugin: quantumespresso.ph
+  version: "{{ quantum_espresso_version }}"
   make: true
 - name: neb
   folder: "{{ quantum_espresso_prefix }}/bin"
   executable: "neb.x"
   plugin: quantumespresso.neb
+  version: "{{ quantum_espresso_version }}"
   make: true
 - name: hp
   folder: "{{ quantum_espresso_prefix }}/bin"
   executable: "hp.x"
   plugin: quantumespresso.hp
+  version: "{{ quantum_espresso_version }}"
   make: true
 - name: w90
   folder: "{{ quantum_espresso_prefix }}/bin"
   executable: "wannier90.x"
   plugin: wannier90
+  version: "{{ quantum_espresso_version }}"
   make: true
 - name: epw
   folder: "{{ quantum_espresso_prefix }}/bin"
   executable: "epw.x"
+  version: "{{ quantum_espresso_version }}"
   make: true
   # utilities
 - name: projwfc
   folder: "{{ quantum_espresso_prefix }}/bin"
   executable: "projwfc.x"
   plugin: quantumespresso.projwfc
+  version: "{{ quantum_espresso_version }}"
 - name: pw2wannier90
   folder: "{{ quantum_espresso_prefix }}/bin"
   executable: "pw2wannier90.x"
   plugin: quantumespresso.pw2wannier90
+  version: "{{ quantum_espresso_version }}"
 - name: q2r
   folder: "{{ quantum_espresso_prefix }}/bin"
   executable: "q2r.x"
   plugin: quantumespresso.q2r
+  version: "{{ quantum_espresso_version }}"
 - name: dos
   folder: "{{ quantum_espresso_prefix }}/bin"
   executable: "dos.x"
   plugin: quantumespresso.dos
+  version: "{{ quantum_espresso_version }}"
 - name: matdyn
   folder: "{{ quantum_espresso_prefix }}/bin"
   executable: "matdyn.x"
   plugin: quantumespresso.matdyn
+  version: "{{ quantum_espresso_version }}"
 
 quantum_espresso_pps:
 - name: sssp-pbe-efficiency-1.1
